@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hacking...</title>
+  <style>
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: monospace;
+      font-size: 18px;
+      padding: 20px;
+    }
+    .blink {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h2>⚠ SYSTEM BREACH DETECTED</h2>
+<p id="hack"></p>
+<p class="blink">_</p>
+
+<script>
+let lines = [
+  "Initializing attack...",
+  "Connecting to target device...",
+  "IP Address Found: 192.168.0.1",
+  "Bypassing security...",
+  "Access granted ✔",
+  "Downloading private files...",
+  "Injecting payload...",
+  "Hack Complete 😈🔥"
+];
+
+let i = 0;
+let speed = 900;
+
+function hack() {
+  if (i < lines.length) {
+    document.getElementById("hack").innerHTML += lines[i] + "<br>";
+    i++;
+    setTimeout(hack, speed);
+  }
+}
+
+hack();
+</script>
+
+</body>
+</html>
+
