@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Clicker</title>
+    
+    <style>
+        body {
+            /* Website ka background colour aur font set kiya hai */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #282c34; /* Dark Background */
+            color: white;
+            padding-top: 50px;
+        }
+        
+        #funButton {
+            /* Button ka style */
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #61dafb; /* Blue color */
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 4px #00a4ce;
+        }
+
+        #funButton:active {
+            /* Jab button dabaya jaye tab ka style */
+            background-color: #00a4ce;
+            box-shadow: 0 1px #00a4ce;
+            transform: translateY(3px);
+        }
+
+        #emojiDisplay {
+            /* Emoji dikhane ke liye style */
+            margin-top: 20px;
+            font-size: 80px;
+            opacity: 0; /* Shuru mein emoji chhipa rahega */
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .visible {
+            /* Emoji ko dikhane ke liye class */
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click The Fun Button!</h1>
+
+    <button id="funButton" onclick="playClickSoundAndShowEmoji()">
+        Click Me!
+    </button>
+
+    <div id="emojiDisplay">
+        🥳
+    </div>
+    
+    <audio id="myAudio">
+        <source src="https://www.soundjay.com/buttons/button-2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // JavaScript code shuru
+        
+        const audio = document.getElementById('myAudio');
+        const emojiDisplay = document.getElementById('emojiDisplay');
+        
+        // Yeh function button click karne par chalta hai
+        function playClickSoundAndShowEmoji() {
+            // 1. Awaaz Bajana (Play Sound)
+            audio.currentTime = 0; // Agar baar-baar click karein toh har baar shuru se awaz bajegi
+            audio.play();
+
+            // 2. Emoji Dikhana (Show Emoji)
+            // Emoji ko visible class dekar dikhate hain
+            emojiDisplay.classList.add('visible');
+
+            // 3. Thodi der baad Emoji Chhipana (Hide Emoji after a delay)
+            // 1.5 seconds (1500 milliseconds) ke baad emoji chhip jayega
+            setTimeout(() => {
+                emojiDisplay.classList.remove('visible');
+            }, 1500); 
+        }
+    </script>
+</body>
+</html>
